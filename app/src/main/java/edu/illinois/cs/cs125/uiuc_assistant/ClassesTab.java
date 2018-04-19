@@ -12,7 +12,7 @@ public class ClassesTab extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.classes, container, false);
+        View rootView = inflater.inflate(R.layout.classesTab, container, false);
         return rootView;
     }
 }

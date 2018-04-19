@@ -12,7 +12,7 @@ public class MapTab extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.map, container, false);
+        View rootView = inflater.inflate(R.layout.mapTab, container, false);
         return rootView;
     }
 }
