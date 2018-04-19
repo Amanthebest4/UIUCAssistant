@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Alarms extends Fragment{
+public class WeatherTab extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.alarms, container, false);
+        View rootView = inflater.inflate(R.layout.weather, container, false);
         return rootView;
     }
 }
