@@ -136,7 +136,5 @@ public class MapTab extends Fragment implements OnMapReadyCallback {
     private void zoomInMethod() {
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
     }
-    private void zoomOutMethod() {
-        mMap.animateCamera(CameraUpdateFactory.zoomOut());
-    }
+    private void zoomOutMethod() { mMap.animateCamera(CameraUpdateFactory.zoomOut()); }
 }

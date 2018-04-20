@@ -7,9 +7,9 @@ public class Class {
     public  final String instructor;
     public final String building;
     public final String room;
-    private boolean[] days = {false, false, false, false, false, false, false};
+    private int[] days = {0, 0, 0, 0, 0, 0, 0};
 
-    public Class(String name, String setCode, float setCreditHour, String setInstructor, String setBuilding, String setRoom, boolean[] setDays) {
+    public Class(String name, String setCode, float setCreditHour, String setInstructor, String setBuilding, String setRoom, int[] setDays) {
         this.title = name;
         this.code = setCode;
         this.creditHours = setCreditHour;
@@ -19,7 +19,7 @@ public class Class {
         this.days = setDays;
     }
 
-    public boolean[] getDays() {
+    public int[] getDays() {
         return days;
     }
 }

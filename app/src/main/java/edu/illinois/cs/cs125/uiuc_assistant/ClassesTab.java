@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,8 @@ import java.util.Date;
 public class ClassesTab extends Fragment{
 
     private CalendarView mCalendarView;
+
+    private FloatingActionButton addClass;
 //    OnHeadlineSelectedListener mCallback;
 //
 //    public interface OnHeadlineSelectedListener {
@@ -59,6 +62,14 @@ public class ClassesTab extends Fragment{
 
 //                CalendarDay calendarDay = new CalendarDay();
 //                calendarDay.setupSchedule(calendar);
+            }
+        });
+
+        addClass = (FloatingActionButton) rootView.findViewById(R.id.add_class_btn);
+        addClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AddClass.class));
             }
         });
         return rootView;
