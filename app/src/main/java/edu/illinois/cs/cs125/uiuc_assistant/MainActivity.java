@@ -6,11 +6,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
+
+    //implements ClassesTab.OnHeadlineSelectedListener
 
     private static final String TAG = "MainActivity";
 
     private SectionsPageAdapter msetionsPageAdapter;
+
+//    public void OnArticleSelected(Calendar calendar) {
+//        CalendarDay calendarDay = (CalendarDay) getSupportFragmentManager().findFragmentById(R.id.fragment);
+//
+//        calendarDay.updateCalendarDay(calendar);
+//    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

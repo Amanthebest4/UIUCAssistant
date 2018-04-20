@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="edu.illinois.cs.cs125.uiuc_assistant.CalendarDay"
+        android:name="edu.illinois.cs.cs125.uiuc_assistant.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
