@@ -110,6 +110,7 @@ public class MapTab extends Fragment implements OnMapReadyCallback {
         LatLng champaign = new LatLng(40.1070, -88.2272);
         mMap.addMarker(new MarkerOptions().position(champaign).title("Marker at the university of Illinois at Urbana-Champaign"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(champaign));
+        mMap.animateCamera(CameraUpdateFactory.newLatLng(champaign));
     }
 
     public void onSearch(View view) {
