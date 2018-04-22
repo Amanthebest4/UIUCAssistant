@@ -56,6 +56,7 @@ public class AddClass extends Activity{
         sat = (CheckBox) findViewById(R.id.sat);
 
         db = new MyClassDBHandler(this,null,null,1);
+        db.onUpgrade(db.getWritableDatabase(),1,1);
         Log.d("check", db.readClass("cs125").code);
 
 

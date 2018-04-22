@@ -39,4 +39,16 @@ public class Class {
     public int[] getTerm() {
         return term;
     }
+
+    public Calendar getStartDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(term[2], term[0], term[1], 0, 0);
+        return calendar;
+    }
+
+    public Calendar getEndDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(term[5], term[3], term[4], 23, 59);
+        return calendar;
+    }
 }
