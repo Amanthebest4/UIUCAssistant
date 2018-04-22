@@ -109,8 +109,7 @@ public class MapTab extends Fragment implements OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         LatLng champaign = new LatLng(40.1070, -88.2272);
         mMap.addMarker(new MarkerOptions().position(champaign).title("Marker at the university of Illinois at Urbana-Champaign"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(champaign));
-        mMap.animateCamera(CameraUpdateFactory.newLatLng(champaign));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(champaign,17), 2000, null);
     }
 
     public void onSearch(View view) {
@@ -130,7 +129,10 @@ public class MapTab extends Fragment implements OnMapReadyCallback {
             LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
 
             mMap.addMarker(new MarkerOptions().position(latLng).title("Marker for search result"));
-            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,8), 2000, null);
+//            mMap.animateCamera(CameraUpdateFactory.zoomIn());
+//            mMap.animateCamera(CameraUpdateFactory.zoomTo(15),2000, null);
+
         }
     }
 

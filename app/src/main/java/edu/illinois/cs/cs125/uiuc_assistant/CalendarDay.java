@@ -45,6 +45,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -136,15 +137,14 @@ public class CalendarDay extends Fragment{
 
         dateView.setText(month + " " + calendar.get(Calendar.DAY_OF_MONTH) + ", " + calendar.get(Calendar.YEAR));
 
-        layout = (RelativeLayout) rootView.findViewById(R.id.layout);
-        Button newButton = new Button(getActivity());
-        newButton.setText("Intro to Computer Programming" + "\n" + "CS125");
-        int top = 8 * 60 + 0;
-        int bottom = 8 * 60 + 50;
-        //newButton.setLayoutParams();
-        newButton.setTop(top);
-        newButton.setLeft(50);
-        newButton.setHeight(bottom - top);
+        layout = (RelativeLayout) rootView.findViewById(R.id.layout_schedule);
+        final float dp = rootView.getResources().getDisplayMetrics().density;
+        //Button newButton = new Button(getActivity());
+
+
+
+
+
 
         Log.d("check","happened");
 
@@ -157,18 +157,20 @@ public class CalendarDay extends Fragment{
 
         Log.d("check", classes.size() + "");
 
+        List<Button> schedule = new ArrayList<>();
+
         for (int i = 0; i < classes.size(); i++) {
-//            Class temp = classes.get(i);
-//            layout = (RelativeLayout) rootView.findViewById(R.id.layout);
-//            Button newButton = new Button(getActivity());
-//            newButton.setText(temp.title + "\n" + temp.code);
-//            int top = temp.getClassTime()[0] * 60 + temp.getClassTime()[1];
-//            int bottom = temp.getClassTime()[2] * 60 + temp.getClassTime()[3];
-//            //newButton.setLayoutParams();
-//            newButton.setTop(top);
-//            newButton.setLeft(50);
-//            newButton.setHeight(bottom - top);
+            Class temp = classes.get(i);
+            Button newButton = new Button(getActivity());
+            int top = temp.getClassTime()[0] * 60 + temp.getClassTime()[1];
+            int bottom = temp.getClassTime()[2] * 60 + temp.getClassTime()[3];
+            RelativeLayout.LayoutParams r1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, (int) ((top - bottom) * dp));
+            r1.topMargin = (int) (top * dp);
+            newButton.setLayoutParams(r1);
+            newButton.setText(temp.title + "\n" + temp.code);
+            ((RelativeLayout) rootView.findViewById(R.id.layout_schedule)).addView(newButton);
         }
+
 
 
         return rootView;
