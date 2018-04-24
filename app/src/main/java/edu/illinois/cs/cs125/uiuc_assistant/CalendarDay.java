@@ -140,34 +140,99 @@ public class CalendarDay extends Fragment{
         layout = (RelativeLayout) rootView.findViewById(R.id.layout_schedule);
         final float dp = rootView.getResources().getDisplayMetrics().density;
         //Button newButton = new Button(getActivity());
+//        Button b1 = new Button(getActivity());
+//        Button b2 = new Button(getActivity());
+//        Button b3 = new Button(getActivity());
+//        Button b4 = new Button(getActivity());
+//        Button b5 = new Button(getActivity());
+//        Button b6 = new Button(getActivity());
+//        Button b7 = new Button(getActivity());
+//        Button b8 = new Button(getActivity());
+//        Button b9 = new Button(getActivity());
+//        Button b10 = new Button(getActivity());
+//        Button b11 = new Button(getActivity());
+//        Button b12 = new Button(getActivity());
 
 
 
 
 
 
-        Log.d("check","happened");
+
+
+
+        //Log.d("check","happened");
 
         //Log.d("calenderDay", "the day is " + calendar.get(Calendar.DAY_OF_WEEK));
 
         List<Class> classes = CalendarUpdater.updateCalendar(calendar, this.getActivity());
+        Log.d("check", classes.size() + "");
         if (classes.size() == 0) {
             return rootView;
         }
 
         Log.d("check", classes.size() + "");
 
+
         List<Button> schedule = new ArrayList<>();
+
+        View.OnClickListener btn = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                switch (v.getId()) {
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+
+                        break;
+                    case 5:
+
+                        break;
+                    case 6:
+
+                        break;
+                    case 7:
+
+                        break;
+                    case 8:
+
+                        break;
+                    case 9:
+
+                        break;
+                    case 10:
+
+                        break;
+                    case 11:
+
+                        break;
+                    case 12:
+
+                        break;
+                }
+            }
+        };
 
         for (int i = 0; i < classes.size(); i++) {
             Class temp = classes.get(i);
+            Log.d("check",temp.code);
             Button newButton = new Button(getActivity());
+            newButton.setId(i+1);
+            newButton.setText(temp.title + "\n" + temp.code);
+            newButton.setOnClickListener(btn);
             int top = temp.getClassTime()[0] * 60 + temp.getClassTime()[1];
             int bottom = temp.getClassTime()[2] * 60 + temp.getClassTime()[3];
             RelativeLayout.LayoutParams r1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, (int) ((top - bottom) * dp));
             r1.topMargin = (int) (top * dp);
             newButton.setLayoutParams(r1);
-            newButton.setText(temp.title + "\n" + temp.code);
             ((RelativeLayout) rootView.findViewById(R.id.layout_schedule)).addView(newButton);
         }
 

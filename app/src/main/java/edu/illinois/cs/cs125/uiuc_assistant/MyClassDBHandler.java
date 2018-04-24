@@ -113,12 +113,16 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_ENDHOUR, new_class.getClassTime()[2]);
         values.put(COLUMN_ENDMIN, new_class.getClassTime()[3]);
         SQLiteDatabase db = getWritableDatabase();
-        db.insert(TABLE_CLASSES, null, values);
+        long result = db.insert(TABLE_CLASSES, null, values);
         db.close();
+
+        if (result == -1) {
+           Log.d("check", "failure");
+        }
     }
 
 
-    public void deleateClasses(String code) {
+    public void deleteClasses(String code) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_CLASSES + " WHERE " + "=\"" + code + "\";" );
     }
@@ -240,12 +244,12 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
         int[] time = {0,0,0,0};
         int[] term = {0,0,0,0,0,0};
         SQLiteDatabase db = getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_CLASSES + " WHERE 1";
+        String query = "SELECT * FROM " + TABLE_CLASSES;
 
         Cursor cursor = db.rawQuery(query, null);
         //Log.d("check", "cursor started");
         cursor.moveToFirst();
-        int count = 1;
+        int count = 0;
         //Log.d("check", "cursor moved to" count);
         while (!cursor.isAfterLast()) {
 //            if (c.getString(c.getColumnIndex("code")) != null) {
@@ -282,8 +286,11 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
             classList.add(dbClass);
 
             cursor.moveToNext();
+            count++;
         }
         db.close();
+
+        Log.d("check", count + "dbcount");
 
         return classList;
 

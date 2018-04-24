@@ -16,6 +16,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -55,8 +57,83 @@ public class AddClass extends Activity{
         fri = (CheckBox) findViewById(R.id.fri);
         sat = (CheckBox) findViewById(R.id.sat);
 
+        sun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("check", "clicked");
+                if (sun.isChecked()) {
+                    days[0] = 1;
+                    Log.d("check", "checked");
+                } else {
+                    days[0] = 0;
+                    Log.d("check", "unchecked");
+                }
+                Log.d("check",Arrays.toString(days));
+            }
+        });
+        mon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mon.isChecked()) {
+                    days[1] = 1;
+                } else {
+                    days[1] = 0;
+                }
+            }
+        });
+        tue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (tue.isChecked()) {
+                    days[2] = 1;
+                } else {
+                    days[2] = 0;
+                }
+            }
+        });
+        wed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (wed.isChecked()) {
+                    days[3] = 1;
+                } else {
+                    days[3] = 0;
+                }
+            }
+        });
+        thu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (thu.isChecked()) {
+                    days[4] = 1;
+                } else {
+                    days[4] = 0;
+                }
+            }
+        });
+        fri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (fri.isChecked()) {
+                    days[5] = 1;
+                } else {
+                    days[5] = 0;
+                }
+            }
+        });
+        sat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sat.isChecked()) {
+                    days[6] = 1;
+                } else {
+                    days[6] = 0;
+                }
+            }
+        });
+
         db = new MyClassDBHandler(this,null,null,1);
-        db.onUpgrade(db.getWritableDatabase(),1,1);
+        //db.onUpgrade(db.getWritableDatabase(),1,1);
         Log.d("check", db.readClass("cs125").code);
 
 
@@ -80,6 +157,8 @@ public class AddClass extends Activity{
                 finish();
             }
         });
+
+
 
     }
 
@@ -114,83 +193,16 @@ public class AddClass extends Activity{
         EditText endmonthIn = (EditText) findViewById(R.id.endMonth);
         EditText endDayIn = (EditText) findViewById(R.id.endDay);
         EditText endYearIn = (EditText) findViewById(R.id.endYear);
-        int[] term = {Integer.parseInt(startmonthIn.getText().toString()),
+        int[] term = {Integer.parseInt(startmonthIn.getText().toString()) - 1,
                 Integer.parseInt(startDayIn.getText().toString()),
                 Integer.parseInt(startYearIn.getText().toString()),
-                Integer.parseInt(endmonthIn.getText().toString()),
+                Integer.parseInt(endmonthIn.getText().toString()) - 1,
                 Integer.parseInt(endDayIn.getText().toString()),
                 Integer.parseInt(endYearIn.getText().toString())};
-        sun.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sun.isChecked()) {
-                    days[0] = 1;
-                } else {
-                    days[0] = 0;
-                }
-            }
-        });
-        mon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sun.isChecked()) {
-                    days[1] = 1;
-                } else {
-                    days[1] = 0;
-                }
-            }
-        });
-        tue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sun.isChecked()) {
-                    days[2] = 1;
-                } else {
-                    days[2] = 0;
-                }
-            }
-        });
-        wed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sun.isChecked()) {
-                    days[3] = 1;
-                } else {
-                    days[3] = 0;
-                }
-            }
-        });
-        thu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sun.isChecked()) {
-                    days[4] = 1;
-                } else {
-                    days[4] = 0;
-                }
-            }
-        });
-        fri.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sun.isChecked()) {
-                    days[5] = 1;
-                } else {
-                    days[5] = 0;
-                }
-            }
-        });
-        sat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sun.isChecked()) {
-                    days[6] = 1;
-                } else {
-                    days[6] = 0;
-                }
-            }
-        });
+
         Class class_1 = new Class(title, code, creditHours, instructor, building, room, days, time, term);
+
+        Log.d("check", Arrays.toString(class_1.getDays()));
 
 
         db.addClasses(class_1);

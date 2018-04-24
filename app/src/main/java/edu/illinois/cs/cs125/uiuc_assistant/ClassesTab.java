@@ -23,6 +23,7 @@ public class ClassesTab extends Fragment{
     private CalendarView mCalendarView;
 
     private FloatingActionButton addClass;
+    private FloatingActionButton clear;
 //    OnHeadlineSelectedListener mCallback;
 //
 //    public interface OnHeadlineSelectedListener {
@@ -37,6 +38,7 @@ public class ClassesTab extends Fragment{
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
 
+                Log.d("check", month + "/" + dayOfMonth + "/" + year);
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(year, month, dayOfMonth);
 //                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
@@ -72,7 +74,17 @@ public class ClassesTab extends Fragment{
                 startActivity(new Intent(getActivity(), AddClass.class));
             }
         });
+
+        clear = (FloatingActionButton) rootView.findViewById(R.id.clear_schedule);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalendarUpdater.clearCalendar(getActivity());
+            }
+        });
         return rootView;
+
+
     }
 
 //    @Override
