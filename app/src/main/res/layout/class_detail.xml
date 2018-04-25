@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Class Title"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/classTitleDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="enter class title"
+            android:inputType="text"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Class Code"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/classCodeDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="enter class code"
+            android:inputType="text"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Credit Hours"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/creditHoursDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="enter number of credit hours"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Time"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/startHourDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="HH"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/startMinDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="MM"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="T0"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/endHourDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="HH"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/endMinuteDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="MM"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start Date"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/startMonthDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="MM"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/StartDayDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="DD"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/StartYearDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="YYYY"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/Label10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="End Date"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/endMonthDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="MM"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/endDayDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="DD"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/endYearDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="YYYY"
+            android:inputType="numberDecimal"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:text="Days"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <CheckBox
+            android:id="@+id/sunDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sun"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/monDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Mon"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/tueDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Tue"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/wed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Wed"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/thuDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Thu"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/fri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95"
+            android:text="Fri"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/satDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sat"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Building"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/BuildingNameDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="enter name of building"
+            android:inputType="text"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Room No."
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/roomNoDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="enter room number"
+            android:inputType="text"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Label7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Instructor"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textStyle="bold"
+            app:fontFamily="casual" />
+
+        <EditText
+            android:id="@+id/InstructorDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="enter the name of the instuctor"
+            android:inputType="textPersonName"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancelButtonDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Exit"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="DeleteClass" />
+    </LinearLayout>
+
+</LinearLayout>

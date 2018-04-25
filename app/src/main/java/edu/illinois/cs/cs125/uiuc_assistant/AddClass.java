@@ -200,9 +200,11 @@ public class AddClass extends Activity{
                 Integer.parseInt(endDayIn.getText().toString()),
                 Integer.parseInt(endYearIn.getText().toString())};
 
+        //Log.d("check", Arrays.toString(term));
+
         Class class_1 = new Class(title, code, creditHours, instructor, building, room, days, time, term);
 
-        Log.d("check", Arrays.toString(class_1.getDays()));
+        //Log.d("check", Arrays.toString(class_1.getDays()));
 
 
         db.addClasses(class_1);

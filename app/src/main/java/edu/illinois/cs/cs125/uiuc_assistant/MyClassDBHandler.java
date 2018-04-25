@@ -9,6 +9,7 @@ import android.renderscript.Sampler;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -101,6 +102,7 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_WEDNESDAY, new_class.getDays()[3]);
         values.put(COLUMN_THURSDAY, new_class.getDays()[4]);
         values.put(COLUMN_FRIDAY, new_class.getDays()[5]);
+        //Log.d("check", Arrays.toString(new_class.getDays()));
         values.put(COLUMN_SATURDAY, new_class.getDays()[6]);
         values.put(COLUMN_STARTMONTH, new_class.getTerm()[0]);
         values.put(COLUMN_STARTDAY, new_class.getTerm()[1]);
@@ -205,23 +207,24 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        days[0] = Integer.parseInt(cursor.getString(6));
-        days[1] = Integer.parseInt(cursor.getString(7));
-        days[2] = Integer.parseInt(cursor.getString(8));
-        days[3] = Integer.parseInt(cursor.getString(9));
-        days[4] = Integer.parseInt(cursor.getString(10));
-        days[5] = Integer.parseInt(cursor.getString(11));
-        days[6] = Integer.parseInt(cursor.getString(12));
-        time[0] = Integer.parseInt(cursor.getString(13));
-        time[1] = Integer.parseInt(cursor.getString(14));
-        time[2] = Integer.parseInt(cursor.getString( 15));
-        time[3] = Integer.parseInt(cursor.getString(16));
-        term[0] = Integer.parseInt(cursor.getString(17));
-        term[1] = Integer.parseInt(cursor.getString(18));
-        term[2] = Integer.parseInt(cursor.getString(19));
-        term[3] = Integer.parseInt(cursor.getString(20));
-        term[4] = Integer.parseInt(cursor.getString(21));
-        term[5] = Integer.parseInt(cursor.getString(22));
+
+        days[0] = cursor.getInt(6);
+        days[1] = cursor.getInt(7);
+        days[2] = cursor.getInt(8);
+        days[3] = cursor.getInt(9);
+        days[4] = cursor.getInt(10);
+        days[5] = cursor.getInt(11);
+        days[6] = cursor.getInt(12);
+        time[0] = cursor.getInt(19);
+        time[1] = cursor.getInt(20);
+        time[2] = cursor.getInt( 21);
+        time[3] = cursor.getInt(22);
+        term[0] = cursor.getInt(13);
+        term[1] = cursor.getInt(14);
+        term[2] = cursor.getInt(15);
+        term[3] = cursor.getInt(16);
+        term[4] = cursor.getInt(17);
+        term[5] = cursor.getInt(18);
 
         Class dbClass = new Class(cursor.getString(0),
                 cursor.getString(1),
@@ -256,23 +259,23 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
 //                dbString += c.getString(c.getColumnIndex("code"));
 //                dbString += "\n";
 //            }
-            days[0] = Integer.parseInt(cursor.getString(6));
-            days[1] = Integer.parseInt(cursor.getString(7));
-            days[2] = Integer.parseInt(cursor.getString(8));
-            days[3] = Integer.parseInt(cursor.getString(9));
-            days[4] = Integer.parseInt(cursor.getString(10));
-            days[5] = Integer.parseInt(cursor.getString(11));
-            days[6] = Integer.parseInt(cursor.getString(12));
-            time[0] = Integer.parseInt(cursor.getString(13));
-            time[1] = Integer.parseInt(cursor.getString(14));
-            time[2] = Integer.parseInt(cursor.getString( 15));
-            time[3] = Integer.parseInt(cursor.getString(16));
-            term[0] = Integer.parseInt(cursor.getString(17));
-            term[1] = Integer.parseInt(cursor.getString(18));
-            term[2] = Integer.parseInt(cursor.getString(19));
-            term[3] = Integer.parseInt(cursor.getString(20));
-            term[4] = Integer.parseInt(cursor.getString(21));
-            term[5] = Integer.parseInt(cursor.getString(22));
+            days[0] = cursor.getInt(6);
+            days[1] = cursor.getInt(7);
+            days[2] = cursor.getInt(8);
+            days[3] = cursor.getInt(9);
+            days[4] = cursor.getInt(10);
+            days[5] = cursor.getInt(11);
+            days[6] = cursor.getInt(12);
+            time[0] = cursor.getInt(19);
+            time[1] = cursor.getInt(20);
+            time[2] = cursor.getInt( 21);
+            time[3] = cursor.getInt(22);
+            term[0] = cursor.getInt(13);
+            term[1] = cursor.getInt(14);
+            term[2] = cursor.getInt(15);
+            term[3] = cursor.getInt(16);
+            term[4] = cursor.getInt(17);
+            term[5] = cursor.getInt(18);
 
             Class dbClass = new Class(cursor.getString(0),
                     cursor.getString(1),
@@ -290,7 +293,7 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
         }
         db.close();
 
-        Log.d("check", count + "dbcount");
+       // Log.d("check", count + "dbcount");
 
         return classList;
 
