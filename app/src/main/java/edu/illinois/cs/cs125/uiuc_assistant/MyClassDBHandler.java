@@ -191,16 +191,16 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
                         COLUMN_THURSDAY,
                         COLUMN_FRIDAY ,
                         COLUMN_SATURDAY,
+                        COLUMN_STARTHOUR,
+                        COLUMN_STARTMIN,
+                        COLUMN_ENDHOUR,
+                        COLUMN_ENDMIN,
                         COLUMN_STARTMONTH,
                         COLUMN_STARTDAY,
                         COLUMN_STARTYEAR,
                         COLUMN_ENDMONTH,
                         COLUMN_ENDDAY,
-                        COLUMN_ENDYEAR,
-                        COLUMN_STARTHOUR,
-                        COLUMN_STARTMIN,
-                        COLUMN_ENDHOUR,
-                        COLUMN_ENDMIN },  COLUMN_COURSECODE + "=?",
+                        COLUMN_ENDYEAR},  COLUMN_COURSECODE + "=?",
                 new String[] { String.valueOf(code) }, null, null, null, null);
         if (cursor.getCount() == 0)
             return new Class(null, "not found",0,null,null,null,null,null, null);

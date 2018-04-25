@@ -35,6 +35,7 @@ package edu.illinois.cs.cs125.uiuc_assistant;
 ////        return null;
 ////    }
 //}
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -236,7 +237,10 @@ public class CalendarDay extends Fragment{
             newButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("check", temp.title + " was clicked");
+                    //Log.d("check", temp.title + " was clicked");
+                    Intent intent = new Intent(getActivity(),ClassDetail.class);
+                    intent.putExtra("Current_Class", temp.code);
+                    startActivity(intent);
                 }
             });
             ((RelativeLayout) rootView.findViewById(R.id.layout_schedule)).addView(newButton);
