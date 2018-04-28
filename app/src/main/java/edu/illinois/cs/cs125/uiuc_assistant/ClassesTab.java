@@ -2,21 +2,21 @@ package edu.illinois.cs.cs125.uiuc_assistant;
 
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class ClassesTab extends Fragment{
 
@@ -79,7 +79,8 @@ public class ClassesTab extends Fragment{
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CalendarUpdater.clearCalendar(getActivity());
+
+                startActivity(new Intent(getActivity(), askIfUserSureClearCalendar.class));
             }
         });
         return rootView;
@@ -99,3 +100,4 @@ public class ClassesTab extends Fragment{
 //
 //    }
 }
+

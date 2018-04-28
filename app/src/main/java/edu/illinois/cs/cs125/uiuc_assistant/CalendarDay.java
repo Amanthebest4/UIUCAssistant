@@ -47,6 +47,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -140,20 +141,26 @@ public class CalendarDay extends Fragment{
 
         layout = (RelativeLayout) rootView.findViewById(R.id.layout_schedule);
         final float dp = rootView.getResources().getDisplayMetrics().density;
-        //Button newButton = new Button(getActivity());
-//        Button b1 = new Button(getActivity());
-//        Button b2 = new Button(getActivity());
-//        Button b3 = new Button(getActivity());
-//        Button b4 = new Button(getActivity());
-//        Button b5 = new Button(getActivity());
-//        Button b6 = new Button(getActivity());
-//        Button b7 = new Button(getActivity());
-//        Button b8 = new Button(getActivity());
-//        Button b9 = new Button(getActivity());
-//        Button b10 = new Button(getActivity());
-//        Button b11 = new Button(getActivity());
-//        Button b12 = new Button(getActivity());
-
+//        Button newButton = new Button(getActivity());
+//
+//        newButton.setId(0);
+//        newButton.setText("cs125" + "\n" + "cs125");
+//
+//        int top_ = 8 * 60 + 0;
+//        int bottom_ = 8 * 60 + 50;
+//        RelativeLayout.LayoutParams r2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, (int) ((top_ - bottom_) * dp));
+//        r2.topMargin = (int) (top_ * dp);
+//        newButton.setLayoutParams(r2);
+//        newButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //Log.d("check", temp.title + " was clicked");
+//                Intent intent = new Intent(getActivity(),ClassDetail.class);
+//                intent.putExtra("Current_Class", "cs125");
+//                startActivity(intent);
+//            }
+//        });
+//        layout.addView(newButton);
 
 
 
@@ -222,19 +229,44 @@ public class CalendarDay extends Fragment{
 //            }
 //        };
 
+        List<Button> buttons = new ArrayList<>();
+
         for (int i = 0; i < classes.size(); i++) {
             final Class temp = classes.get(i);
             //Log.d("check",temp.code);
-            Button newButton = new Button(getActivity());
-            newButton.setId(i+1);
-            newButton.setText(temp.title + "\n" + temp.code);
+            buttons.add(new Button(getActivity()));
+            //Button newButton = new Button(getActivity());
+//            newButton.setId(i+1);
+//            newButton.setText(temp.title + "\n" + temp.code);
+//
+//            int top = temp.getClassTime()[0] * 60 + temp.getClassTime()[1];
+//            int bottom = temp.getClassTime()[2] * 60 + temp.getClassTime()[3];
+//            RelativeLayout.LayoutParams r1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, (int) ((top - bottom) * dp));
+//            r1.topMargin = (int) (top * dp);
+//            newButton.setLayoutParams(r1);
+//            newButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    //Log.d("check", temp.title + " was clicked");
+//                    Intent intent = new Intent(getActivity(),ClassDetail.class);
+//                    intent.putExtra("Current_Class", temp.code);
+//                    startActivity(intent);
+//                }
+//            });
+//            layout.addView(newButton);
+            //Log.d("check", i + ", " + temp.code);
+            buttons.get(i).setId(i+1);
+            buttons.get(i).setText(temp.title + "\n" + temp.code);
+
+            //Log.d("check", Arrays.toString(temp.getClassTime()));
 
             int top = temp.getClassTime()[0] * 60 + temp.getClassTime()[1];
             int bottom = temp.getClassTime()[2] * 60 + temp.getClassTime()[3];
+            //Log.d("check", top + " - " +  bottom);
             RelativeLayout.LayoutParams r1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, (int) ((top - bottom) * dp));
             r1.topMargin = (int) (top * dp);
-            newButton.setLayoutParams(r1);
-            newButton.setOnClickListener(new View.OnClickListener() {
+            buttons.get(i).setLayoutParams(r1);
+            buttons.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //Log.d("check", temp.title + " was clicked");
@@ -243,8 +275,34 @@ public class CalendarDay extends Fragment{
                     startActivity(intent);
                 }
             });
-            ((RelativeLayout) rootView.findViewById(R.id.layout_schedule)).addView(newButton);
+            layout.addView(buttons.get(i));
+            //buttons.add(newButton);
         }
+
+//        try {
+//            layout.addView(buttons.get(0));
+//            Log.d("check", "0, " + buttons.get(0).getText());
+//            //layout.addView(buttons.get(1));
+//            Log.d("check", "1, " + buttons.get(1).getText());
+//            layout.addView(buttons.get(2));
+//            layout.addView(buttons.get(3));
+//            layout.addView(buttons.get(4));
+//            layout.addView(buttons.get(5));
+//            layout.addView(buttons.get(6));
+//            layout.addView(buttons.get(7));
+//            layout.addView(buttons.get(8));
+//            layout.addView(buttons.get(9));
+//            layout.addView(buttons.get(10));
+//            layout.addView(buttons.get(11));
+//            layout.addView(buttons.get(12));
+//
+//        } catch (Exception e) {
+//
+//        }
+
+//        for (int i = 0; i < buttons.size(); i++) {
+//            ((RelativeLayout) rootView.findViewById(R.id.layout_schedule)).addView(buttons.get(i));
+//        }
 
 
 

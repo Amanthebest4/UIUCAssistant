@@ -46,8 +46,12 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".AddClass" />
-        <activity android:name=".ClassDetail" />
+        <activity android:name=".AddClass"/>
+        <activity android:name=".ClassDetail"
+            android:theme="@style/AppTheme.clearBackground"
+            />
+        <activity android:name=".askIfUserSureClearCalendar"
+            android:theme="@style/AppTheme.clearBackground"/>
     </application>
 
 </manifest>

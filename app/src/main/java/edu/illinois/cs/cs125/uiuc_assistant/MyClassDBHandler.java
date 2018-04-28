@@ -215,16 +215,16 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
         days[4] = cursor.getInt(10);
         days[5] = cursor.getInt(11);
         days[6] = cursor.getInt(12);
-        time[0] = cursor.getInt(19);
-        time[1] = cursor.getInt(20);
-        time[2] = cursor.getInt( 21);
-        time[3] = cursor.getInt(22);
-        term[0] = cursor.getInt(13);
-        term[1] = cursor.getInt(14);
-        term[2] = cursor.getInt(15);
-        term[3] = cursor.getInt(16);
-        term[4] = cursor.getInt(17);
-        term[5] = cursor.getInt(18);
+        time[0] = cursor.getInt(13);
+        time[1] = cursor.getInt(14);
+        time[2] = cursor.getInt( 15);
+        time[3] = cursor.getInt(16);
+        term[0] = cursor.getInt(17);
+        term[1] = cursor.getInt(18);
+        term[2] = cursor.getInt(19);
+        term[3] = cursor.getInt(20);
+        term[4] = cursor.getInt(21);
+        term[5] = cursor.getInt(22);
 
         Class dbClass = new Class(cursor.getString(0),
                 cursor.getString(1),
@@ -243,9 +243,7 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
     public List<Class> getAllClasses() {
 
         List<Class> classList = new ArrayList<>();
-        int[] days = {0,0,0,0,0,0,0};
-        int[] time = {0,0,0,0};
-        int[] term = {0,0,0,0,0,0};
+
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_CLASSES;
 
@@ -259,6 +257,9 @@ public class MyClassDBHandler extends SQLiteOpenHelper {
 //                dbString += c.getString(c.getColumnIndex("code"));
 //                dbString += "\n";
 //            }
+            int[] days = {0,0,0,0,0,0,0};
+            int[] time = {0,0,0,0};
+            int[] term = {0,0,0,0,0,0};
             days[0] = cursor.getInt(6);
             days[1] = cursor.getInt(7);
             days[2] = cursor.getInt(8);

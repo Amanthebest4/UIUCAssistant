@@ -23,7 +23,7 @@ public class CalendarUpdater {
         List<Class> daySchedule = new ArrayList<>();
         for (int i = 0; i < classList.size(); i++) {
             Class temp = classList.get(i);
-            //Log.d("check", Arrays.toString(temp.getTerm()));
+            //Log.d("check", Arrays.toString(db.getAllClasses().get(0).getClassTime()));
             //Log.d("check", Arrays.toString(db.readClass(temp.code).getTerm()));
 
             //Log.d("check",temp.code);

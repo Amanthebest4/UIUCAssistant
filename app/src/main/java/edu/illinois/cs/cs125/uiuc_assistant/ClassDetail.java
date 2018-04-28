@@ -9,20 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.Arrays;
 
 public class ClassDetail extends Activity {
 
-    private int[] days = {0, 0, 0, 0, 0, 0, 0};
-    private CheckBox sun;
-    private CheckBox mon;
-    private CheckBox tue;
-    private CheckBox wed;
-    private CheckBox thu;
-    private CheckBox fri;
-    private CheckBox sat;
+    //private int[] days = {0, 0, 0, 0, 0, 0, 0};
+
 
     private MyClassDBHandler db;
 
@@ -48,13 +43,52 @@ public class ClassDetail extends Activity {
         final Class class_1 = db.readClass(class_code);
 
 
-        sun = (CheckBox) findViewById(R.id.sunDetail);
-        mon = (CheckBox) findViewById(R.id.monDetail);
-        tue = (CheckBox) findViewById(R.id.tueDetail);
-        wed = (CheckBox) findViewById(R.id.wedDetail);
-        thu = (CheckBox) findViewById(R.id.thuDetail);
-        fri = (CheckBox) findViewById(R.id.friDetail);
-        sat = (CheckBox) findViewById(R.id.satDetail);
+        CheckBox sun = (CheckBox) findViewById(R.id.sunDetail);
+        CheckBox mon = (CheckBox) findViewById(R.id.monDetail);
+        CheckBox tue = (CheckBox) findViewById(R.id.tueDetail);
+        CheckBox wed = (CheckBox) findViewById(R.id.wedDetail);
+        CheckBox thu = (CheckBox) findViewById(R.id.thuDetail);
+        CheckBox fri = (CheckBox) findViewById(R.id.friDetail);
+        CheckBox sat = (CheckBox) findViewById(R.id.satDetail);
+        TextView title = (TextView) findViewById(R.id.classTitleDetail);
+        TextView code = (TextView) findViewById(R.id.classCodeDetail);
+        TextView creditHours = (TextView) findViewById(R.id.creditHoursDetail);
+        TextView startHour = (TextView) findViewById(R.id.startHourDetail);
+        TextView startMin = (TextView) findViewById(R.id.startMinDetail);
+        TextView endHour = (TextView) findViewById(R.id.endHourDetail);
+        TextView endMin = (TextView) findViewById(R.id.endMinDetail);
+        TextView startMonth = (TextView) findViewById(R.id.startMonthDetail);
+        TextView startDay = (TextView) findViewById(R.id.startDayDetail);
+        TextView startYear = (TextView) findViewById(R.id.startYearDetail);
+        TextView endMonth = (TextView) findViewById(R.id.endMonthDetail);
+        TextView endDay = (TextView) findViewById(R.id.endDayDetail);
+        TextView endYear = (TextView) findViewById(R.id.endYearDetail);
+        TextView building = (TextView) findViewById(R.id.BuildingNameDetail);
+        TextView room = (TextView) findViewById(R.id.roomNoDetail);
+        TextView instructor = (TextView) findViewById(R.id.instructorDetail);
+        title.setText(class_1.title);
+        code.setText(class_1.code);
+        creditHours.setText(class_1.creditHours + "");
+        startHour.setText(class_1.getClassTime()[0] + "");
+        startMin.setText(class_1.getClassTime()[1] + "");
+        endHour.setText(class_1.getClassTime()[2] + "");
+        endMin.setText(class_1.getClassTime()[3] + "");
+        startMonth.setText((class_1.getTerm()[0] + 1) + "");
+        startDay.setText(class_1.getTerm()[1] + "");
+        startYear.setText(class_1.getTerm()[2] + "");
+        endMonth.setText((class_1.getTerm()[3] + 1) + "");
+        endDay.setText(class_1.getTerm()[4] + "");
+        endYear.setText(class_1.getTerm()[5] + "");
+        building.setText(class_1.building);
+        room.setText(class_1.room);
+        instructor.setText(class_1.instructor);
+        sun.setChecked(class_1.getDays()[0] == 1);
+        mon.setChecked(class_1.getDays()[1] == 1);
+        tue.setChecked(class_1.getDays()[2] == 1);
+        wed.setChecked(class_1.getDays()[3] == 1);
+        thu.setChecked(class_1.getDays()[4] == 1);
+        fri.setChecked(class_1.getDays()[5] == 1);
+        sat.setChecked(class_1.getDays()[6] == 1);
 
 //        sun.setOnClickListener(new View.OnClickListener() {
 //            @Override

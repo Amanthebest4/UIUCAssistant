@@ -144,8 +144,12 @@ public class AddClass extends Activity{
             public void onClick(View v) {
                 try {
                     createClass();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    finish();
+                } catch (IncorrectArgumentException ia) {
+                    Toast.makeText(AddClass.this, ia.getMessage(), Toast.LENGTH_LONG).show();
+
+                } catch (NumberFormatException n) {
+                    Toast.makeText(AddClass.this, "date or time data fields are invalid", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -162,16 +166,26 @@ public class AddClass extends Activity{
 
     }
 
-    public void createClass() throws IOException {
+    public void createClass() throws IncorrectArgumentException {
         EditText titleIn = (EditText) findViewById(R.id.classTitle);
         String title = titleIn.getText().toString();
+
+        if (title == null || title.equals("")) {
+           //Log.d("check", "empty title");
+           throw new IncorrectArgumentException("empty title! the title is a required field");
+        }
+        //Log.d("check", "empty");
         EditText codeIn = (EditText) findViewById(R.id.classCode);
         String code = codeIn.getText().toString();
 
-        if (code == null || code == "") {
-            finish();
+        if (code == null || code.equals("")) {
+            //Log.d("check", "empty code");
+            throw new IncorrectArgumentException("empty class code! the class code is a required field");
         }
         EditText credit = (EditText) findViewById(R.id.creditHours);
+        if (credit.getText().toString().equals("")) {
+            throw new IncorrectArgumentException("empty class credit hours! the class credit hours is a required field");
+        }
         float creditHours = Float.valueOf(credit.getText().toString());
         EditText instructorIn = (EditText) findViewById(R.id.Instructor);
         String instructor = instructorIn.getText().toString();
@@ -183,22 +197,54 @@ public class AddClass extends Activity{
         EditText startMinIn = (EditText) findViewById(R.id.startMin);
         EditText endhourIn = (EditText) findViewById(R.id.endHour);
         EditText endMinIn = (EditText) findViewById(R.id.endMinute);
+        if (starthourIn.getText().toString().equals("") || startMinIn.getText().toString().equals("") ||
+                endhourIn.getText().toString().equals("") || endMinIn.getText().toString().equals("")) {
+            throw new IncorrectArgumentException("empty class times! the class times are required fields");
+        }
         int[] time = {Integer.parseInt(starthourIn.getText().toString()),
                 Integer.parseInt(startMinIn.getText().toString()),
                 Integer.parseInt(endhourIn.getText().toString()),
                 Integer.parseInt(endMinIn.getText().toString())};
+        if (time[0] >= 24 || time[0] < 0 || time[2] >= 24 || time[2] < 0 || time[1] >= 60 || time[1] < 0 ||
+                time[3] >= 60 || time[3] < 0) {
+            throw new IncorrectArgumentException("invalid class times! the class times must be in 24-hour format");
+        }
         EditText startmonthIn = (EditText) findViewById(R.id.startMonth);
         EditText startDayIn = (EditText) findViewById(R.id.StartDay);
         EditText startYearIn = (EditText) findViewById(R.id.StartYear);
         EditText endmonthIn = (EditText) findViewById(R.id.endMonth);
         EditText endDayIn = (EditText) findViewById(R.id.endDay);
         EditText endYearIn = (EditText) findViewById(R.id.endYear);
+        if (startmonthIn.getText().toString().equals("") || startDayIn.getText().toString().equals("") ||
+                startYearIn.getText().toString().equals("") || endmonthIn.getText().toString().equals("") ||
+                endDayIn.getText().toString().equals("") || endYearIn.getText().toString().equals("")) {
+            throw new IncorrectArgumentException("empty class term dates! the class term dates are required fields");
+        }
         int[] term = {Integer.parseInt(startmonthIn.getText().toString()) - 1,
                 Integer.parseInt(startDayIn.getText().toString()),
                 Integer.parseInt(startYearIn.getText().toString()),
                 Integer.parseInt(endmonthIn.getText().toString()) - 1,
                 Integer.parseInt(endDayIn.getText().toString()),
                 Integer.parseInt(endYearIn.getText().toString())};
+//        if (term[0] >= 12 || term[0] < 0 || term[3] >= 12 || term[3] < 0 || term[1] >= 12 || term[0] < 0 ||) {
+//            throw new IncorrectArgumentException("invalid class times! the class times must be in 24-hour format");
+//        }
+        Calendar start = Calendar.getInstance();
+        start.setLenient(false);
+        start.set(term[2], term[0], term[1]);
+        try {
+            start.getTime();
+        } catch (Exception e) {
+            throw new IncorrectArgumentException("invalid start date");
+        }
+        Calendar end = Calendar.getInstance();
+        end.setLenient(false);
+        end.set(term[5], term[3], term[4]);
+        try {
+            end.getTime();
+        } catch (Exception e) {
+            throw new IncorrectArgumentException("invalid end date");
+        }
 
         //Log.d("check", Arrays.toString(term));
 
@@ -215,7 +261,6 @@ public class AddClass extends Activity{
         //Log.d("check",db.dataBaseToString());
         //UpdateSchedule();
 
-        finish();
     }
 
 //    public void writeFile(Class temp) {

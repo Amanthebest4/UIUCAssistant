@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     android:orientation="vertical">
 
     <LinearLayout
@@ -145,7 +146,7 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/endMinuteDetail"
+            android:id="@+id/endMinDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -183,7 +184,7 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/StartDayDetail"
+            android:id="@+id/startDayDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -193,7 +194,7 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/StartYearDetail"
+            android:id="@+id/startYearDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -390,7 +391,7 @@
             app:fontFamily="casual" />
 
         <TextView
-            android:id="@+id/InstructorDetail"
+            android:id="@+id/instructorDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
