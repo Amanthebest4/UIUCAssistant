@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -121,15 +122,20 @@ public class MapTab extends Fragment implements OnMapReadyCallback {
             Geocoder geocoder = new Geocoder(this.getActivity());
             try {
                 addressList = geocoder.getFromLocationName(location, 1);
+                Address address = addressList.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
+
+                mMap.addMarker(new MarkerOptions().position(latLng).title("Marker for search result"));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,17), 2000, null);
             } catch (IOException e) {
                 e.printStackTrace();
+                Toast.makeText(getActivity(), "no results found", Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(getActivity(), "no results found", Toast.LENGTH_LONG).show();
             }
 
-            Address address = addressList.get(0);
-            LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
 
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Marker for search result"));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,8), 2000, null);
 //            mMap.animateCamera(CameraUpdateFactory.zoomIn());
 //            mMap.animateCamera(CameraUpdateFactory.zoomTo(15),2000, null);
 

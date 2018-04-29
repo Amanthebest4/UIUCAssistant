@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new HomeTab(), "HOME");
-        adapter.addFragment(new MapTab(), "MAP");
+        //adapter.addFragment(new HomeTab(), "HOME");
         adapter.addFragment(new WeatherTab(), "WEATHER");
+        adapter.addFragment(new MapTab(), "MAP");
         adapter.addFragment(new ClassesTab(), "CLASSES");
-        adapter.addFragment(new AssignmentsTab(), "ASSIGNMENTS");
-        adapter.addFragment(new AlarmsTab(), "ALARMS");
+        //adapter.addFragment(new AssignmentsTab(), "ASSIGNMENTS");
+        //adapter.addFragment(new AlarmsTab(), "ALARMS");
         viewPager.setAdapter(adapter);
     }
 }

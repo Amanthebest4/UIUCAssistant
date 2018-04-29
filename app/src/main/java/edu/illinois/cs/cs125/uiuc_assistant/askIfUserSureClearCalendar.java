@@ -18,7 +18,7 @@ public class askIfUserSureClearCalendar extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
         int width = (int)(dm.widthPixels * 0.9);
-        int height = (int)(dm.heightPixels * 0.4);
+        int height = (int)(dm.heightPixels * 0.3);
 
         getWindow().setLayout(width, height);
 
